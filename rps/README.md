@@ -2,7 +2,4 @@
 
 ## TODO
 - Add in colors
-- Keep score
-- Ask user if they want to play again
-- Report final score
-
+- Refactor (seperate functions and/or packages)
