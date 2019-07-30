@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/AlecAivazis/survey"
 	"math/rand"
 	"time"
-	"github.com/AlecAivazis/survey"
 )
 
 type Scoreboard struct {
@@ -12,34 +12,21 @@ type Scoreboard struct {
 }
 
 var (
-	playAgain = "no"
+	playAgain  = "no"
 	totalScore = Scoreboard{}
 )
 
 func main() {
 	userChoice := ""
 	selectPrompt := &survey.Select{
-			Message: "Make a selection:",
-			Options: []string{"rock", "paper", "scissors"},
+		Message: "Make a selection:",
+		Options: []string{"rock", "paper", "scissors"},
 	}
 	survey.AskOne(selectPrompt, &userChoice)
 
 	// Generate computer choice
-	rand.Seed(time.Now().UnixNano())
-	randNum := rand.Intn(3)
-	var computerChoice string
+	computerChoice := GenerateChoice()
 
-	if randNum == 0 {
-		computerChoice = "rock"
-	}
-
-	if randNum == 1 {
-		computerChoice = "paper"
-	}
-
-	if randNum == 2 {
-		computerChoice ="scissors"
-	}
 	fmt.Println("User choice: ", userChoice)
 	fmt.Println("Computer choice: ", computerChoice)
 
@@ -94,8 +81,8 @@ func main() {
 
 	// Ask if you'd like to play again
 	playAgainPrompt := &survey.Select{
-			Message: "Would you like to play another round?",
-			Options: []string{"yes", "no"},
+		Message: "Would you like to play another round?",
+		Options: []string{"yes", "no"},
 	}
 	survey.AskOne(playAgainPrompt, &playAgain)
 
@@ -107,4 +94,23 @@ func main() {
 		fmt.Printf("User: %v\n", totalScore.User)
 		fmt.Printf("Computer: %v\n", totalScore.Computer)
 	}
+}
+
+func GenerateChoice() (choice string) {
+	rand.Seed(time.Now().UnixNano())
+	randNum := rand.Intn(3)
+
+	if randNum == 0 {
+		choice = "rock"
+	}
+
+	if randNum == 1 {
+		choice = "paper"
+	}
+
+	if randNum == 2 {
+		choice = "scissors"
+	}
+
+	return
 }
