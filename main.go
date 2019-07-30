@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/AlecAivazis/survey"
-	"golang-rock-paper-scissors/computer"
+	"golang-rock-paper-scissors/utils"
 )
 
 type Scoreboard struct {
@@ -16,15 +16,9 @@ var (
 )
 
 func main() {
-	userChoice := ""
-	selectPrompt := &survey.Select{
-		Message: "Make a selection:",
-		Options: []string{"rock", "paper", "scissors"},
-	}
-	survey.AskOne(selectPrompt, &userChoice)
+	userChoice := utils.GetUserChoice()
 
-	// Generate computer choice
-	computerChoice := computer.GenerateChoice()
+	computerChoice := utils.GenerateComputerChoice()
 
 	fmt.Println("User choice: ", userChoice)
 	fmt.Println("Computer choice: ", computerChoice)

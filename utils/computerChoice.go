@@ -1,11 +1,11 @@
-package computer
+package utils
 
 import (
 	"time"
 	"math/rand"
 )
 
-func GenerateChoice() (choice string) {
+func GenerateComputerChoice() (choice string) {
 	rand.Seed(time.Now().UnixNano())
 	randNum := rand.Intn(3)
 

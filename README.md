@@ -11,4 +11,4 @@ Rock paper scissors command line game written in golang
 1. Clone the repo and `cd` into the `golang-rock-paper-scissors` directory
 2. `go install` to install the included packages
 3. `go get -u github.com/AlecAivazis/survey` to install the vendor package
-4. `go build` to compile the code and `go run main.go` to execute
+4. `go run main.go` to compile and start the game
