@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 	"github.com/AlecAivazis/survey"
+	"golang-rock-paper-scissors/computer"
 )
 
 type Scoreboard struct {
@@ -25,7 +24,7 @@ func main() {
 	survey.AskOne(selectPrompt, &userChoice)
 
 	// Generate computer choice
-	computerChoice := GenerateChoice()
+	computerChoice := computer.GenerateChoice()
 
 	fmt.Println("User choice: ", userChoice)
 	fmt.Println("Computer choice: ", computerChoice)
@@ -94,23 +93,4 @@ func main() {
 		fmt.Printf("User: %v\n", totalScore.User)
 		fmt.Printf("Computer: %v\n", totalScore.Computer)
 	}
-}
-
-func GenerateChoice() (choice string) {
-	rand.Seed(time.Now().UnixNano())
-	randNum := rand.Intn(3)
-
-	if randNum == 0 {
-		choice = "rock"
-	}
-
-	if randNum == 1 {
-		choice = "paper"
-	}
-
-	if randNum == 2 {
-		choice = "scissors"
-	}
-
-	return
 }
