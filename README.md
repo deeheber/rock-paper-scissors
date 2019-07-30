@@ -1,8 +1,8 @@
-# go-playground
+# golang-rock-paper-scissors
 
-This is a repo with some golang learning experiments
+Rock paper scissors command line game written in golang
 
-## directions
-1. `cd` into folder for the app to run
-2. `go build`
-3. `./[root file name]`
+## TODO
+- Add in colors for command line feedback (red for lose and green for win)
+- Refactor (seperate functions and/or packages)
+- Documentation on how to run
