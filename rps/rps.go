@@ -7,14 +7,23 @@ import (
 	"github.com/AlecAivazis/survey"
 )
 
+type Scoreboard struct {
+	User, Computer int
+}
+
+var (
+	playAgain = "no"
+	score = Scoreboard{}
+)
+
 func main() {
 	// Get user choice
 	userChoice := ""
-	prompt := &survey.Select{
+	selectPrompt := &survey.Select{
 			Message: "Make a selection:",
 			Options: []string{"rock", "paper", "scissors"},
 	}
-	survey.AskOne(prompt, &userChoice)
+	survey.AskOne(selectPrompt, &userChoice)
 
 	// Generate computer choice
 	rand.Seed(time.Now().UnixNano())
@@ -76,5 +85,20 @@ func main() {
 		if computerChoice == "scissors" {
 			fmt.Println("Both picked scissors...it's a tie!")
 		}
+	}
+
+	// Ask if you'd like to play again
+	playAgainPrompt := &survey.Select{
+			Message: "Would you like to play another round?",
+			Options: []string{"yes", "no"},
+	}
+	survey.AskOne(playAgainPrompt, &playAgain)
+
+	if playAgain == "yes" {
+		main()
+	} else {
+		fmt.Println("Thanks for playing, here's the final results")
+		fmt.Println("User: ", score.User)
+		fmt.Println("Computer: ", score.Computer)
 	}
 }
