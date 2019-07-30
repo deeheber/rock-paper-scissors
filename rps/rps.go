@@ -4,12 +4,18 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
+	"github.com/AlecAivazis/survey"
 )
 
 func main() {
-	// TODO Get user choice
-	// Hardcoding for now
-	userChoice := "scissors"
+	// Get user choice
+	userChoice := ""
+	prompt := &survey.Select{
+			Message: "Make a selection:",
+			Options: []string{"rock", "paper", "scissors"},
+	}
+	survey.AskOne(prompt, &userChoice)
+
 	// Generate computer choice
 	rand.Seed(time.Now().UnixNano())
 	randNum := rand.Intn(3)
@@ -71,5 +77,4 @@ func main() {
 			fmt.Println("Both picked scissors...it's a tie!")
 		}
 	}
-
 }
