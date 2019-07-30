@@ -4,8 +4,7 @@ Rock paper scissors command line game written in golang
 
 ## TODO
 - Add in colors for command line feedback (red for lose and green for win)
-- Refactor (seperate functions and/or packages)
-- Audit documentation on how to run
+- Final pass...might possibly want to tweak console output messaging
 
 ## How to run
 1. Clone the repo and `cd` into the `golang-rock-paper-scissors` directory
