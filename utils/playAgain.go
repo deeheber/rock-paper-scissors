@@ -2,14 +2,12 @@ package utils
 
 import "github.com/AlecAivazis/survey"
 
-func PlayAgain() bool {
-	playAgain := ""
-
-	prompt := &survey.Select{
+func PlayAgain() (playAgain bool) {
+	prompt := &survey.Confirm{
 		Message: "Would you like to play another round?",
-		Options: []string{"yes", "no"},
+		Default: true,
 	}
 	survey.AskOne(prompt, &playAgain)
 
-	return playAgain == "yes"
+	return
 }
