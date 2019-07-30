@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/AlecAivazis/survey"
 	"math/rand"
 	"time"
+	"github.com/AlecAivazis/survey"
 )
 
 type Scoreboard struct {
