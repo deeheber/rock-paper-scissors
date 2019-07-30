@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/AlecAivazis/survey"
 	"golang-rock-paper-scissors/utils"
 )
 
@@ -73,13 +72,9 @@ func main() {
 	}
 
 	// Ask if you'd like to play again
-	playAgainPrompt := &survey.Select{
-		Message: "Would you like to play another round?",
-		Options: []string{"yes", "no"},
-	}
-	survey.AskOne(playAgainPrompt, &playAgain)
+	playAgain := utils.PlayAgain()
 
-	if playAgain == "yes" {
+	if playAgain {
 		main()
 	} else {
 		fmt.Println("Thanks for playing, here's the final results")
