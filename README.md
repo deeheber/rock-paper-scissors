@@ -1,4 +1,4 @@
-# golang-rock-paper-scissors
+# rock-paper-scissors
 
 Rock paper scissors command line game written in golang
 
