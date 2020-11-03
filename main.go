@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
+	"rock-paper-scissors/utils"
+
 	"github.com/fatih/color"
-	"golang-rock-paper-scissors/utils"
 )
 
 var (
@@ -35,15 +36,15 @@ func main() {
 		fmt.Printf("Tie: %v\n", totalScore["Tie"])
 		fmt.Printf("Number of games played: %v\n", totalScore["Rounds"])
 
-		if (totalScore["User"] > totalScore["Computer"]) {
+		if totalScore["User"] > totalScore["Computer"] {
 			color.Green("Final result: Congratualations, you won overall!")
 		}
 
-		if (totalScore["User"] < totalScore["Computer"]) {
+		if totalScore["User"] < totalScore["Computer"] {
 			color.Red("Final result: The computer did better overall. Better luck next time.")
 		}
 
-		if (totalScore["User"] == totalScore["Computer"]) {
+		if totalScore["User"] == totalScore["Computer"] {
 			color.Yellow("Final result: It was a tie overall.")
 		}
 	}
