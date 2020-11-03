@@ -1,6 +1,6 @@
 package utils
 
-import 	"github.com/AlecAivazis/survey"
+import "github.com/AlecAivazis/survey/v2"
 
 func GetUserChoice() (choice string) {
 	selectPrompt := &survey.Select{

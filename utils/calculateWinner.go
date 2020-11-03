@@ -3,7 +3,7 @@ package utils
 import "github.com/fatih/color"
 
 func CalculateWinner(computerChoice, userChoice string) (winner string) {
-		if userChoice == "rock" {
+	if userChoice == "rock" {
 		if computerChoice == "rock" {
 			winner = "Tie"
 			color.Yellow("Both picked rock, it's a tie!")
